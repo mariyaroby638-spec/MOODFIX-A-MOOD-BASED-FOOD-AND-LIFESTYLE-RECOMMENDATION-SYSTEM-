@@ -1,0 +1,267 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoodFix</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- General & Global Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background: linear-gradient(to right, #ffe0ec, #d9f4ff);
+        }
+
+        /* --- Navbar Styles --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav h2 {
+            color: #ff4d88;
+            font-size: 35px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 25px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* --- Hero Section Styles --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px;
+        }
+        .left {
+            width: 50%;
+        }
+        .left h1 {
+            font-size: 60px;
+            color: #222;
+        }
+        .left p {
+            font-size: 22px;
+            margin-top: 20px;
+            color: #555;
+            line-height: 1.7;
+        }
+        .emoji {
+            font-size: 35px;
+            margin-top: 20px;
+        }
+        button.btn-main {
+            margin-top: 30px;
+            padding: 15px 35px;
+            font-size: 20px;
+            border: none;
+            border-radius: 40px;
+            background: #ff4d88;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button.btn-main:hover {
+            transform: scale(1.05);
+            background: #e63973;
+        }
+        .right img {
+            width: 380px;
+            border-radius: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* --- Feature Cards Styles --- */
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 50px;
+            flex-wrap: wrap;
+        }
+        .card {
+            width: 280px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        .card h3 {
+            font-size: 28px;
+            color: #ff4d88;
+        }
+        .card p {
+            margin-top: 15px;
+            font-size: 17px;
+            color: #555;
+        }
+
+        /* --- Mood Selector Section Styles --- */
+        .mood-section {
+            padding: 60px 20px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            width: 70%;
+            margin: auto;
+            box-shadow: 0px 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .container h1 {
+            font-size: 50px;
+            color: #ff4d88;
+        }
+        .container p {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #555;
+        }
+        .mood-btn {
+            padding: 15px 25px;
+            margin: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 12px;
+            background: #ff4d88;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .mood-btn:hover {
+            transform: scale(1.05);
+            background: #e63973;
+        }
+        #result {
+            margin-top: 35px;
+            padding: 25px;
+            background: #f7f7f7;
+            border-radius: 20px;
+            font-size: 22px;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* --- Responsive Design Media Queries --- */
+        @media(max-width:900px){
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .left {
+                width: 100%;
+            }
+            .left h1 {
+                font-size: 45px;
+            }
+            .right img {
+                width: 250px;
+                margin-top: 30px;
+            }
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h2>🌈 MoodFix</h2>
+        <ul>
+            <li>Home</li>
+            <li>Features</li>
+            <li>Contact</li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="left">
+            <h1>Fix Your Mood <br> With Healthy Choices 💖</h1>
+            <p>Get food, wellness and relaxation suggestions based on your mood.</p>
+            <div class="emoji">
+                😊 😢 😫 😴 🍓 🍵 💧 🧘 ✨
+            </div>
+            <button class="btn-main" onclick="openMood()">Get Started</button>
+        </div>
+        <div class="right">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop" alt="Healthy choices lifestyle">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="cards">
+        <div class="card">
+            <h3>😊 Mood Detection</h3>
+            <p>Select your mood instantly.</p>
+        </div>
+        <div class="card">
+            <h3>🍓 Healthy Food</h3>
+            <p>Get healthy food suggestions.</p>
+        </div>
+        <div class="card">
+            <h3>🧘 Lifestyle Tips</h3>
+            <p>Relaxation and wellness ideas.</p>
+        </div>
+    </section>
+
+    <!-- Mood Selector App Section -->
+    <section class="mood-section" id="mood-app">
+        <div class="container">
+            <h1>🌈 Select Your Mood</h1>
+            <p>Choose your mood and get recommendations ✨</p>
+            <button class="mood-btn" onclick="showMood('happy')">😊 Happy</button>
+            <button class="mood-btn" onclick="showMood('sad')">😢 Sad</button>
+            <button class="mood-btn" onclick="showMood('stress')">😫 Stressed</button>
+            <button class="mood-btn" onclick="showMood('tired')">😴 Tired</button>
+            <div id="result">
+                Your recommendations will appear here 💖
+            </div>
+        </div>
+    </section>
+
+    <!-- Functional Scripts -->
+    <script>
+        // Smooth scroll function to jump down to the tool section
+        function openMood() {
+            document.getElementById("mood-app").scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Mood analyzer engine
+        function showMood(mood) {
+            let result = document.getElementById("result");
+            if (mood == "happy") {
+                result.innerHTML = "<strong>😊 HAPPY</strong> <br><br> 🍓 Fruit salad & juice <br><br> 🚶 Go out with friends <br><br> ✨ Stay positive";
+            } else if (mood == "sad") {
+                result.innerHTML = "<strong>😢 SAD</strong> <br><br> 🍫 Dark chocolate <br><br> 🎵 Relaxing music <br><br> ✨ Better days are coming";
+            } else if (mood == "stress") {
+                result.innerHTML = "<strong>😫 STRESSED</strong> <br><br> 🍵 Green tea <br><br> 🧘 Meditation <br><br> ✨ Calm your mind";
+            } else if (mood == "tired") {
+                result.innerHTML = "<strong>😴 TIRED</strong> <br><br> ☕ Healthy snacks <br><br> 🛌 Take proper rest <br><br> ✨ Recharge yourself";
+            }
+        }
+    </script>
+</body>
+</html>
